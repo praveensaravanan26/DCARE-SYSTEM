@@ -1,0 +1,48 @@
+{
+  "dataset_summary": {
+    "total_samples": 6000,
+    "features_count": 13,
+    "training_samples": 4800,
+    "test_samples": 1200,
+    "suspicious_ratio": 0.18,
+    "dataset_note": "Controlled synthetic benchmark for system evaluation."
+  },
+  "xgboost": {
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "roc_auc": 1.0,
+    "confusion_matrix": [
+      [
+        984,
+        0
+      ],
+      [
+        0,
+        216
+      ]
+    ]
+  },
+  "random_forest": {
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "roc_auc": 1.0,
+    "confusion_matrix": [
+      [
+        984,
+        0
+      ],
+      [
+        0,
+        216
+      ]
+    ]
+  },
+  "isolation_forest": {
+    "contamination": 0.18,
+    "mean_anomaly_score_test": -0.08520448785453866
+  }
+}

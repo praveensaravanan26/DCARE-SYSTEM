@@ -1,0 +1,17 @@
+{
+  "feature_columns": [
+    "claim_amount",
+    "historical_avg_amount",
+    "amount_deviation",
+    "claim_amount_zscore",
+    "claim_frequency_90d",
+    "days_since_last_claim",
+    "previous_claim_count",
+    "garage_repeat_count",
+    "document_mismatch_count",
+    "duplicate_indicator",
+    "invoice_reuse_indicator",
+    "policy_age_days",
+    "incident_to_claim_delay_days"
+  ]
+}

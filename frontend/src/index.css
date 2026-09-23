@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   DCARE ENTERPRISE DESIGN SYSTEM & TOKENS
+   ========================================================================== */
+
+:root {
+  --bg-app: #070b14;
+  --bg-surface: #0f172a;
+  --bg-surface-elevated: #131d31;
+  --bg-surface-hover: #1e293b;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-card: rgba(255, 255, 255, 0.12);
+  --border-active: #3b82f6;
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --color-brand: #2563eb;
+  --color-brand-glow: rgba(37, 99, 235, 0.35);
+  
+  --risk-low: #10b981;
+  --risk-medium: #f59e0b;
+  --risk-high: #f97316;
+  --risk-critical: #ef4444;
+}
+
+/* Base Body Styles */
+body {
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.05) 0px, transparent 50%);
+  background-attachment: fixed;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  letter-spacing: -0.025em;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #070b14;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* ==========================================================================
+   ENTERPRISE COMPONENTS & UTILITIES
+   ========================================================================== */
+
+@layer components {
+  /* Page Layout Wrapper */
+  .layout-container {
+    @apply flex min-h-screen bg-slate-950 text-slate-100;
+  }
+
+  .main-content {
+    @apply flex-1 flex flex-col min-w-0 overflow-x-hidden bg-slate-950;
+  }
+
+  .page-wrapper {
+    @apply p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-6;
+  }
+
+  /* Enterprise Cards */
+  .dcare-card {
+    @apply bg-slate-900/90 backdrop-blur-md border border-slate-800 rounded-xl p-5 sm:p-6 shadow-xl transition-all duration-200;
+  }
+
+  .dcare-card:hover {
+    @apply border-slate-700/80 shadow-2xl;
+  }
+
+  .dcare-card-glass {
+    @apply bg-slate-900/60 backdrop-blur-xl border border-white/10 rounded-xl p-5 sm:p-6 shadow-2xl;
+  }
+
+  .dcare-card-interactive {
+    @apply bg-slate-900/90 border border-slate-800 rounded-xl p-5 hover:border-blue-500/50 hover:bg-slate-850 cursor-pointer transition-all duration-200 hover:-translate-y-0.5 shadow-lg;
+  }
+
+  /* Form Controls */
+  .dcare-input {
+    @apply w-full bg-slate-950 border border-slate-800 rounded-lg px-3.5 py-2.5 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-150;
+  }
+
+  .dcare-select {
+    @apply w-full bg-slate-950 border border-slate-800 rounded-lg px-3.5 py-2.5 text-sm text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-150;
+  }
+
+  .dcare-select option {
+    @apply bg-slate-900 text-slate-100 py-1;
+  }
+
+  /* Buttons */
+  .dcare-btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 active:scale-[0.98] shadow-lg shadow-blue-600/20 transition-all duration-150 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .dcare-btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-xs sm:text-sm font-medium text-slate-200 bg-slate-800 hover:bg-slate-700 hover:text-white border border-slate-700 active:scale-[0.98] transition-all duration-150 cursor-pointer;
+  }
+
+  .dcare-btn-success {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold text-emerald-300 bg-emerald-950/60 hover:bg-emerald-900/60 border border-emerald-700/50 active:scale-[0.98] shadow-lg shadow-emerald-900/20 transition-all duration-150 cursor-pointer;
+  }
+
+  .dcare-btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold text-rose-300 bg-rose-950/60 hover:bg-rose-900/60 border border-rose-700/50 active:scale-[0.98] shadow-lg shadow-rose-900/20 transition-all duration-150 cursor-pointer;
+  }
+
+  /* Tables */
+  .dcare-table {
+    @apply w-full border-collapse text-left;
+  }
+
+  .dcare-table th {
+    @apply bg-slate-950/90 text-slate-400 text-[11px] font-bold uppercase tracking-wider px-4 py-3.5 border-b border-slate-800;
+  }
+
+  .dcare-table td {
+    @apply px-4 py-3.5 text-xs sm:text-sm text-slate-200 border-b border-slate-800/60 align-middle;
+  }
+
+  .dcare-table tbody tr {
+    @apply hover:bg-slate-800/40 transition-colors duration-150;
+  }
+
+  /* Status Badges */
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold tracking-wide;
+  }
+
+  .badge-low {
+    @apply bg-emerald-500/10 text-emerald-400 border border-emerald-500/25;
+  }
+
+  .badge-medium {
+    @apply bg-amber-500/10 text-amber-400 border border-amber-500/25;
+  }
+
+  .badge-high {
+    @apply bg-orange-500/10 text-orange-400 border border-orange-500/25;
+  }
+
+  .badge-critical {
+    @apply bg-rose-500/15 text-rose-400 border border-rose-500/30 font-bold;
+  }
+
+  .badge-info {
+    @apply bg-blue-500/10 text-blue-400 border border-blue-500/25;
+  }
+
+  /* Modal System */
+  .modal-overlay {
+    @apply fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fade-in;
+  }
+
+  .modal-card {
+    @apply bg-slate-900 border border-slate-800 rounded-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto shadow-2xl shadow-black/80;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
+}

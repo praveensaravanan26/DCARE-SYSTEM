@@ -1,0 +1,9 @@
+ai-service/venv/
+ai-service/__pycache__/
+*.pyc
+.env
+.env.*
+node_modules/
+target/
+.vscode/
+.DS_Store
